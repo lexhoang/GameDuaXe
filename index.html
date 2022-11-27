@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        } */
+        }
 
         .container {
             width: 200px;
@@ -100,7 +100,7 @@
     }
     arrayTrouble[1] = {
         x: 110,
-        y: 300,
+        y: 250,
     }
 
     function display() {
@@ -135,9 +135,17 @@
                 return;
             }
         }
-        document.getElementById('score').innerHTML = "Scores: " + score
+        document.getElementById('score').innerHTML = "Scores: " + score;
 
-        setTimeout(display, 30);
+        if (score < 5) {
+            setTimeout(display, 30);
+        } else if (score >= 5 && score < 10) {
+            setTimeout(display, 15);
+        } else if (score >= 10 && score < 30) {
+            setTimeout(display, 5);
+        } else if (score >= 30) {
+            setTimeout(display, 1);
+        }
     }
 
     function reload() {
